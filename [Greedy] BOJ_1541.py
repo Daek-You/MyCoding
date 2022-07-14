@@ -3,8 +3,7 @@
 - +는 괄호를 해봐야 의미가 없으니 -가 나올 때가 비교 대상
 - (-)가 나왔다면 선택을 해야 함.
 
-ex1) 5 + 4 - 3 - 5 - 10)   : - - 일 경우 뒷 자리 수가 나보다 작을 경우 수행
-ex2) 55 - 50 - 40 - 30   : - + 일 경우 -가 나오기 전까지 수행
+ex1) 55 - 50 + 40 - 30   : - + 일 경우 -가 나오기 전까지 수행
 '''
 
 def ToNumber(stringFormular):
@@ -45,11 +44,11 @@ def Solution(operands):
     
     for i in range(N - 1):
         if operands[i] < 0:         # 음수일 경우 그 다음 수를 확인
-            if operands[i+1] >= 0:  # (- +)의 경우 무조건 수행
+            if operands[i+1] >= 0:  # (- +)의 경우 수행
                 operands[i+1] *= -1
         _sum += operands[i]
     
-    _sum += operands[-1]
+    _sum += operands[-1]            # 맨 마지막 숫자는 계산 안 됐으므로
     return _sum
         
         
